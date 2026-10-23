@@ -4,14 +4,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
+    <title>WGU - Exam Screenshot Evidence</title>
 
     <style>
-        /* Add your CSS here */
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
+            background: #080d19;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        header {
+            padding: 45px 20px;
+            background: #121c34;
+            border-bottom: 4px solid #ffcc00;
+        }
+
+        h1 {
+            font-size: clamp(30px, 5vw, 55px);
+            margin: 10px 0;
+        }
+
+        h2 {
+            color: #ffcc00;
+        }
+
+        .subtitle {
+            color: #ccd5e5;
+            font-size: 19px;
+        }
+
+        .notice {
+            background: #ffcc00;
+            color: #111;
+            padding: 18px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        main {
+            max-width: 1150px;
+            margin: auto;
+            padding: 30px 20px;
+        }
+
+        .arrow {
+            font-size: 65px;
+            color: #ffcc00;
+            margin: 12px;
+            animation: bounce 1s infinite alternate;
+        }
+
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(15px); }
+        }
+
+        .screenshot-container {
+            background: white;
+            padding: 12px;
+            border: 6px solid #ffcc00;
+            border-radius: 12px;
+            box-shadow: 0 0 45px #ffcc0055;
+        }
+
+        .screenshot-container img {
+            display: block;
+            width: 100%;
+            height: auto;
+            cursor: zoom-in;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 35px 0;
+        }
+
+        .button {
+            display: inline-block;
+            background: #ffcc00;
+            color: #111;
+            padding: 18px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 17px;
+            border: 2px solid #ffcc00;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background: white;
+            border-color: white;
+        }
+
+        .button.secondary {
+            background: transparent;
+            color: white;
+        }
+
+        .button.secondary:hover {
+            color: #111;
+            background: white;
+        }
+
+        .info {
+            margin: 45px auto;
+            padding: 25px;
+            max-width: 800px;
+            background: #17233b;
+            border-radius: 12px;
+            line-height: 1.8;
+        }
+
+        .info p {
+            color: #d4dbea;
+        }
+
+        footer {
+            padding: 25px;
+            border-top: 1px solid #34415b;
+            color: #a8b4c9;
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.96);
+            padding: 60px 15px 20px;
+            overflow: auto;
+        }
+
+        .lightbox img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: auto;
+        }
+
+        .close {
+            position: fixed;
+            top: 12px;
+            right: 25px;
+            background: none;
+            color: white;
+            border: none;
+            font-size: 42px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 600px) {
+            .button {
+                width: 100%;
+            }
+
+            .notice {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
@@ -19,39 +182,147 @@
 <body>
 
     <header>
-        <h1>My Score for WGU Scores</h1>
-
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-        </nav>
+        <h1>WGU EXAM EVIDENCE</h1>
+        <p class="subtitle">
+            Screenshot provided for exam rescheduling review
+        </p>
     </header>
 
+    <div class="notice">
+        THE REQUESTED SCREENSHOT IS DISPLAYED DIRECTLY BELOW
+    </div>
+
     <main>
-        <section id="home">
-            <h2>Home</h2>
-            <p>Welcome to my website.</p>
-          <img src=scores.png>
+
+        <section id="evidence">
+
+            <h2>THIS IS THE SCREENSHOT</h2>
+
+            <p>
+                Please review the image below.
+                No Google Drive permissions or account login
+                should be required to view this page.
+            </p>
+
+            <div class="arrow">↓</div>
+
+            <div class="screenshot-container">
+                <img
+                    src="scores.png"
+                    alt="WGU exam no-show screenshot evidence"
+                    id="evidenceImage"
+                    onclick="openImage()"
+                >
+            </div>
+
+            <div class="arrow">↑</div>
+
+            <h2>THE IMAGE ABOVE IS THE ATTACHMENT</h2>
+
+            <div class="buttons">
+
+                <a
+                    class="button"
+                    href="scores.png"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    OPEN ORIGINAL SCREENSHOT
+                </a>
+
+                <a
+                    class="button"
+                    href="scores.png"
+                    download="WGU-Exam-Evidence.png"
+                >
+                    DOWNLOAD SCREENSHOT
+                </a>
+
+                <button
+                    class="button secondary"
+                    onclick="openImage()"
+                >
+                    VIEW FULL SCREEN
+                </button>
+
+            </div>
+
         </section>
 
-        <section id="about">
-            <h2>About</h2>
-            <p>Add your content here.</p>
+        <section class="info">
+
+            <h2>Submission Information</h2>
+
+            <p>
+                This page has been created to provide direct
+                access to the previously submitted exam
+                screenshot.
+            </p>
+
+            <p>
+                The screenshot has been included on this page
+                to eliminate the need to access a shared
+                Google Drive folder or request file permissions.
+            </p>
+
+            <p>
+                Please use the screenshot above to review
+                the exam status and continue the appropriate
+                rescheduling or authorization process.
+            </p>
+
+            <p>
+                If the image does not appear, please use
+                the "OPEN ORIGINAL SCREENSHOT" button.
+            </p>
+
         </section>
 
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Add your contact information here.</p>
-        </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 My Website</p>
+        <p>WGU Exam Evidence Submission | 2026</p>
+        <p>Screenshot file: scores.png</p>
     </footer>
 
+    <div class="lightbox" id="lightbox">
+
+        <button class="close" onclick="closeImage()">
+            &times;
+        </button>
+
+        <img
+            src="scores.png"
+            alt="Full size WGU exam evidence screenshot"
+        >
+
+    </div>
+
     <script>
-        // Add your JavaScript here
+        function openImage() {
+            document.getElementById(
+                "lightbox"
+            ).style.display = "block";
+        }
+
+        function closeImage() {
+            document.getElementById(
+                "lightbox"
+            ).style.display = "none";
+        }
+
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "Escape") {
+                closeImage();
+            }
+        });
+
+        document.getElementById("lightbox")
+            .addEventListener("click", function(event) {
+                if (event.target === this) {
+                    closeImage();
+                }
+            });
     </script>
 
 </body>
